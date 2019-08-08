@@ -34,18 +34,18 @@ exports.seed = function(knex, Promise) {
       user_id: 5,
       text:
         'A wizard is never late, Frodo Baggins. Nor is he early. He arrives precisely when he means to.',
-    },
+    }, //12
     {
       user_id: 5,
       text:
         'One ring to rule them all. One ring to find them. One ring to bring them all and in the darkness bind them!',
-    },
-    { user_id: 5, text: 'Is it secret?! Is it safe?!' },
+    }, //13
+    { user_id: 5, text: 'Is it secret?! Is it safe?!' }, //14
     {
       user_id: 5,
       text:
         'A Balrog. A demon of the ancient world. This foe is beyond any of you. Run!',
-    },
+    }, // 15
     { user_id: 5, text: 'When in doubt, follow your nose.' }, // 16
     { user_id: 5, text: 'YOU SHALL NOT PASS!' }, // 17
     { user_id: 5, text: 'Fly you fools!' }, // 18
@@ -129,10 +129,15 @@ exports.seed = function(knex, Promise) {
       text:
         'I would have gone with you to the end, into the very fires of Mordor.',
     }, // 37
+    // {
+    //   user_id: 9,
+    //   text:
+    //     'Indeed. I can avoid being seen, if I wish, but to disappear entirely, that is a rare gift.',
+    // }, //38
     {
       user_id: 9,
       text:
         'Indeed. I can avoid being seen, if I wish, but to disappear entirely, that is a rare gift.',
-    },
+    }, // 38
   ]);
 };
