@@ -83,7 +83,7 @@ router.put('/:id', validateUserId, (req, res) => {
 });
 
 //custom middleware
-
+//the middle ware db.functionNameHere are coming from the userDb.js file
 function validateUserId(req, res, next) {
     const id = req.params.id;
     db.getById(id)

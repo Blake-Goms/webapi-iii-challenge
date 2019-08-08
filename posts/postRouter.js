@@ -49,7 +49,7 @@ router.put('/:id', validatePostId, (req, res) => {
 });
 
 // custom middleware
-
+//the middleware dbetById() is coming from the postDb.js file
 function validatePostId(req, res, next) {
     const id = req.params.id;
     db.getById(id)
