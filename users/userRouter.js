@@ -6,7 +6,7 @@ const router = require('express').Router();
 router.post('/', validateUser, (req, res) => {
     db.insert(req.body)
     .then(user => {
-        res.status(200).json(user);
+        res.status(201).json(user);
     })
     .catch(err => {
         res.status(500).json({error: 'error add new user'})
@@ -17,7 +17,7 @@ router.post('/:id/posts', validateUserId, validatePost, (req, res) => {
     if(req.body){
         postDb.insert(req.body)
             .then(post => {
-                res.status(200).json(post);
+                res.status(201).json(post);
             })
             .catch(err => {
                 res.status(500).json({error: 'There was an error posting to the database.'})
@@ -63,19 +63,19 @@ router.delete('/:id', validateUserId, (req, res) => {
     const id = req.params.id;
     db.remove(id)
         .then(user => {
-            res.status(200).json(user);
+            res.status(204).json(user);
         })
         .catch(err => {
             res.status(500).json({error: 'Server error, did not get all users'})
         })
 });
 // remember .put use the .update request. Which accepts two arguments! in this case id and changes!
-router.put('/:id', validateUserId, (req, res) => {
+router.put('/:id', validateUserId, validateUser, (req, res) => {
     const id = req.params.id;
     const changes = req.body;
     db.update(id, changes)
         .then(user => {
-            res.status(201).json({message: `user ${id} succesfully updated`})
+            res.status(204).json({message: `user ${id} succesfully updated`})
         })
         .catch(err => {
             req.status(500).json({error: 'server error, did not update post'})

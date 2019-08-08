@@ -28,7 +28,7 @@ router.delete('/:id', validatePostId, (req, res) => {
     const id = req.params.id;
     db.remove(id)
         .then(post => {
-            res.status(200).json({message: `successfully deleted post ${id}`})
+            res.status(204).json({message: `successfully deleted post ${id}`})
         })
         .catch(err => {
             res.status(500).json({error: 'server error, did not delete post'})
@@ -41,7 +41,7 @@ router.put('/:id', validatePostId, (req, res) => {
     const changes = req.body;
     db.update(id, changes)
         .then(post => {
-            res.status(201).json({message: `post ${id} succesfully updated`})
+            res.status(204).json({message: `post ${id} succesfully updated`})
         })
         .catch(err => {
             req.status(500).json({error: 'server error, did not update post'})
